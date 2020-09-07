@@ -42,6 +42,6 @@
     "directory": "test"
   },
   "files": [
-    "index.d.ts"
+    "template"
   ]
 }
