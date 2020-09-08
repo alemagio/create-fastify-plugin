@@ -9,13 +9,15 @@
   },
   "scripts": {
     "lint": "standard",
-    "test": "npm run lint && npm run unit",
-    "unit": "tap --100 test/*.test.js"
+    "test": "npm run lint && npm run unit && npm run typescript",
+    "unit": "tap --100 test/*.test.js templates/plugin/test/*.test.js",
+    "typescript": "tsd templates",
+    "coverage": "tap --cov --coverage-report=html test/*.test.js"
   },
   "author": "Alessandro Magionami - @alemagio",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alemagio/fastify-plugin-boilerplate.git"
+    "url": "git+https://github.com/alemagio/create-fastify-plugin.git"
   },
   "license": "MIT",
   "dependencies": {
@@ -29,10 +31,14 @@
     "@typescript-eslint/parser": "^3.9.1",
     "fastify": "^3.2.1",
     "fastify-plugin": "^2.3.0",
+    "minimatch": "^3.0.4",
+    "rimraf": "^3.0.2",
     "standard": "^14.3.4",
+    "strip-ansi": "^6.0.0",
     "tap": "^14.10.8",
     "tsd": "^0.13.1",
-    "typescript": "^3.9.7"
+    "typescript": "^3.9.7",
+    "walker": "^1.0.7"
   },
   "keywords": [
     "fastify",
@@ -45,6 +51,9 @@
   ],
   "tsd": {
     "directory": "test"
+  },
+  "tap": {
+    "test-ignore": "*.config.js"
   },
   "files": [
     "template"

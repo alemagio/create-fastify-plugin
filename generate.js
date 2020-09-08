@@ -6,47 +6,10 @@ const {
   existsSync
 } = require('fs')
 const path = require('path')
-const chalk = require('chalk')
 const generify = require('generify')
 const argv = require('yargs-parser')
-const cliPkg = require('./package')
 const { execSync } = require('child_process')
 const log = require('./log')
-
-const template = {
-  dir: 'plugin',
-  main: 'index.js',
-  types: 'index.d.ts',
-  scripts: {
-    lint: 'standard && npm run lint:typescript',
-    'lint:typescript': 'standard --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin test/types/*.ts',
-    test: 'npm run lint && npm run unit && npm run typescript',
-    typescript: 'tsd',
-    unit: 'tap test/*.test.js'
-  },
-  dependencies: {
-    'fastify-plugin': cliPkg.devDependencies['fastify-plugin'] || cliPkg.dependencies['fastify-plugin']
-  },
-  devDependencies: {
-    '@types/node': cliPkg.devDependencies['@types/node'],
-    '@typescript-eslint/eslint-plugin': cliPkg.devDependencies['@typescript-eslint/eslint-plugin'],
-    '@typescript-eslint/parser': cliPkg.devDependencies['@typescript-eslint/parser'],
-    fastify: cliPkg.devDependencies.fastify,
-    standard: cliPkg.devDependencies.standard,
-    tap: cliPkg.devDependencies.tap,
-    tsd: cliPkg.devDependencies.tsd,
-    typescript: cliPkg.devDependencies.typescript
-  },
-  tsd: {
-    directory: 'test'
-  },
-  logInstructions: function (pkg) {
-    log('debug', 'saved package.json')
-    log('info', `project ${pkg.name} generated successfully`)
-    log('debug', `run '${chalk.bold('npm install')}' to install the dependencies`)
-    log('debug', `run '${chalk.bold('npm test')}' to execute the tests`)
-  }
-}
 
 async function generate (dir, template) {
   return new Promise((resolve, reject) => {
@@ -75,6 +38,8 @@ async function generate (dir, template) {
 
         pkg.main = template.main
         pkg.types = template.types
+        pkg.description = ''
+        pkg.license = 'MIT'
         pkg.scripts = Object.assign(pkg.scripts || {}, template.scripts)
         pkg.dependencies = Object.assign(pkg.dependencies || {}, template.dependencies)
         pkg.devDependencies = Object.assign(pkg.devDependencies || {}, template.devDependencies)
@@ -114,7 +79,7 @@ async function cli (args) {
   }
 
   try {
-    await generate(dir, template)
+    await generate(dir, require('./template.confing'))
   } catch (err) {
     log('error', err.message)
     process.exit(1)
@@ -123,8 +88,7 @@ async function cli (args) {
 
 module.exports = {
   generate,
-  cli,
-  template
+  cli
 }
 
 if (require.main === module) {
