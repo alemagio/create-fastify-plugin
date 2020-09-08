@@ -8,10 +8,8 @@
     "create-fastify-plugin": "./index.js"
   },
   "scripts": {
-    "lint": "standard && npm run lint:typescript",
-    "lint:typescript": "standard --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin test/types/*.ts",
-    "test": "npm run lint && npm run unit && npm run typescript",
-    "typescript": "tsd",
+    "lint": "standard",
+    "test": "npm run lint && npm run unit",
     "unit": "tap --100 test/*.test.js"
   },
   "author": "Alessandro Magionami - @alemagio",
@@ -41,7 +39,9 @@
     "plugin",
     "boilerplate",
     "example",
-    "template"
+    "template",
+    "cli",
+    "productivity"
   ],
   "tsd": {
     "directory": "test"
