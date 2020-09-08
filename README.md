@@ -1,40 +1,21 @@
-# fastify-socket.io
+# create-fastify-plugin
 
-[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)  ![CI workflow](https://github.com/alemagio/fastify-socket.io/workflows/CI%20workflow/badge.svg)
+[![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat)](http://standardjs.com/)  ![CI workflow](https://github.com/alemagio/create-fastify-plugin/workflows/CI%20workflow/badge.svg)
 
-`fastify-socket.io` enables the use of [Socket.io](https://socket.io/) in a Fastify application.
+`create-fastify-plugin` is a CLI tool to create a boilerplate for your plugins.
 
 Supports Fastify versions `3.x`
 
 ## Install
-```
-npm i fastify-socket.io
+```bash
+$ npm i -g create-fastify-plugin
 ```
 
 ## Usage
-Require `fastify-socket.io` and register it as any other plugin, it will add a `io` decorator.
-```js
-const fastify = require('fastify')()
-
-fastify.register(require('fastify-socket.io'), {
-  // put your options here
-})
-
-fastify.get('/', (req, reply) => {
-  fastify.io.emit('hello')
-})
-
-fastify.listen(3000)
+```bash
+$ create-fastify-plugin my-plugin
 ```
-For more details see [examples](https://github.com/alemagio/fastify-socket.io/tree/master/examples)
-
-You can use it as is without passing any option, or you can configure it as explained by Socket.io [doc](https://socket.io/docs/server-api/).
 
 ## Acknowledgements
 
-The code is a port for Fastify of [`socket.io`](https://github.com/socketio/socket.io).
-
-## License
-
-Licensed under [MIT](./LICENSE).<br/>
-[`socket.io` license](https://github.com/socketio/socket.io/blob/master/LICENSE)
+The code is expired by [`fastify-cli`](https://github.com/fastify/fastify-cli).

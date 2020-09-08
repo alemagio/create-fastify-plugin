@@ -4,6 +4,9 @@
   "description": "Create Fastify plugin with a simple CLI",
   "main": "index.js",
   "types": "index.d.ts",
+  "bin": {
+    "create-fastify-plugin": "./index.js"
+  },
   "scripts": {
     "lint": "standard && npm run lint:typescript",
     "lint:typescript": "standard --parser @typescript-eslint/parser --plugin @typescript-eslint/eslint-plugin test/types/*.ts",
