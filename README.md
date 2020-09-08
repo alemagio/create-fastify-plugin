@@ -18,4 +18,8 @@ $ create-fastify-plugin my-plugin
 
 ## Acknowledgements
 
-The code is expired by [`fastify-cli`](https://github.com/fastify/fastify-cli).
+The code is largely expired by [`fastify-cli`](https://github.com/fastify/fastify-cli).
+
+## License
+
+Licensed under [MIT](./LICENSE).<br/>
