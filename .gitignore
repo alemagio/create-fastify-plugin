@@ -79,5 +79,6 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-# Build client js
-dist/
+# test artifacts
+test/workdir
+test/fixtures/*.js

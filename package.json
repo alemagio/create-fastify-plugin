@@ -9,9 +9,8 @@
   },
   "scripts": {
     "lint": "standard",
-    "test": "npm run lint && npm run unit && npm run typescript",
+    "test": "npm run lint && npm run unit",
     "unit": "tap --100 test/*.test.js templates/plugin/test/*.test.js",
-    "typescript": "tsd templates",
     "coverage": "tap --cov --coverage-report=html test/*.test.js"
   },
   "author": "Alessandro Magionami - @alemagio",
@@ -49,9 +48,6 @@
     "cli",
     "productivity"
   ],
-  "tsd": {
-    "directory": "test"
-  },
   "tap": {
     "test-ignore": "*.config.js"
   },

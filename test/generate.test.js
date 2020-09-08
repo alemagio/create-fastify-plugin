@@ -142,7 +142,7 @@ function define (t) {
         t.equal(pkg.devDependencies.tap, cliPkg.devDependencies.tap)
         t.equal(pkg.devDependencies.tsd, cliPkg.devDependencies.tsd)
         t.equal(pkg.devDependencies.typescript, cliPkg.devDependencies.typescript)
-        t.deepEqual(pkg.tsd, cliPkg.tsd)
+        t.deepEqual(pkg.tsd, config.tsd)
 
         const testGlob = pkg.scripts.unit.split(' ')[1]
         t.equal(minimatch.match(['test/more/test/here/ok.test.js'], testGlob).length, 1)
@@ -153,10 +153,11 @@ function define (t) {
 
   function verifyCopy (t, expected) {
     const pkgFile = path.join(workdir, 'package.json')
+    const githubDir = path.join(workdir, '.github', 'workflows', 'ci.yml')
     return new Promise((resolve, reject) => {
       walker(workdir)
         .on('file', function (file) {
-          if (file === pkgFile) {
+          if (file === pkgFile || file === githubDir) {
             return
           }
           try {

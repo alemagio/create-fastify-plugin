@@ -3,7 +3,9 @@
 const {
   readFile,
   writeFile,
-  existsSync
+  existsSync,
+  mkdirSync,
+  copyFileSync
 } = require('fs')
 const path = require('path')
 const generify = require('generify')
@@ -55,6 +57,9 @@ async function generate (dir, template) {
           resolve()
         })
       })
+
+      mkdirSync(path.join('.github', 'workflows'), { recursive: true })
+      copyFileSync(path.join(__dirname, '.github', 'workflows', 'ci.yml'), path.join('.github', 'workflows', 'ci.yml'))
     })
   })
 }
