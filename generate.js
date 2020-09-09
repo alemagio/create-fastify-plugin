@@ -75,7 +75,7 @@ async function cli (args) {
     }
   }
   if (dir === undefined) {
-    log('error', 'must specify a directory to \'fastify generate\'')
+    log('error', 'must specify a directory to \'create-fastify-plugin\'')
     process.exit(1)
   }
   if (!opts.integrate && existsSync(path.join(dir, 'package.json'))) {

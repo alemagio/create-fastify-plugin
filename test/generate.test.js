@@ -75,7 +75,7 @@ function define (t) {
   test('errors if generate doesn\'t have <folder> arguments', (t) => {
     t.plan(2)
     exec('node generate.js', (err, stdout) => {
-      t.is('must specify a directory to \'fastify generate\'', strip(stdout.toString().trim()))
+      t.is('must specify a directory to \'create-fastify-plugin\'', strip(stdout.toString().trim()))
       t.is(1, err.code)
     })
   })

@@ -31,6 +31,7 @@
     "fastify": "^3.2.1",
     "fastify-plugin": "^2.3.0",
     "minimatch": "^3.0.4",
+    "mkdirp": "^1.0.4",
     "rimraf": "^3.0.2",
     "standard": "^14.3.4",
     "strip-ansi": "^6.0.0",
