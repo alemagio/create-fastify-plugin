@@ -1,6 +1,6 @@
 {
   "name": "create-fastify-plugin",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Create Fastify plugin with a simple CLI",
   "main": "index.js",
   "types": "index.d.ts",
