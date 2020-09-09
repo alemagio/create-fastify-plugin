@@ -49,9 +49,6 @@
     "cli",
     "productivity"
   ],
-  "tap": {
-    "test-ignore": "*.config.js"
-  },
   "files": [
     "template"
   ]
