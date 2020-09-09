@@ -50,6 +50,7 @@
     "productivity"
   ],
   "files": [
-    "template"
+    "templates",
+    "*.js"
   ]
 }
